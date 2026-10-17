@@ -1,0 +1,44 @@
+{
+  "name": "trusttrace-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Synthetic TrustTrace policy gateway and audit backend",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:all": "npm run build && npm run build:web",
+    "build:web": "vite build --config web/vite.config.ts",
+    "dev": "tsx src/server.ts",
+    "dev:web": "vite --config web/vite.config.ts",
+    "format": "prettier --write src test tsconfig.json",
+    "format:check": "prettier --check src test tsconfig.json",
+    "start": "node dist/src/server.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck:web": "tsc -p web/tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "better-sqlite3": "11.10.0",
+    "express": "5.1.0",
+    "helmet": "8.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "7.6.12",
+    "@types/express": "5.0.3",
+    "@types/node": "22.15.21",
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "@types/supertest": "6.0.3",
+    "@vitejs/plugin-react": "^5.0.4",
+    "prettier": "3.5.3",
+    "supertest": "7.1.1",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3",
+    "vite": "^7.1.7"
+  }
+}
